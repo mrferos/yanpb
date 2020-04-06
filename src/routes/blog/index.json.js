@@ -5,5 +5,5 @@ export async function get(req, res) {
 		'Content-Type': 'application/json'
 	});
 
-	res.end(JSON.stringify(await getAllPosts(['title', 'slug'])));
+	res.end(JSON.stringify(await getAllPosts(['title', 'slug', 'created'])));
 }

@@ -1,7 +1,8 @@
 import { db } from './database.js';
 
 export const getAllPosts = async (columns = []) => {
-    const query = db.from('posts');
+    const query = db.from('posts')
+        .orderBy('created', 'asc');
 
     if (columns.length > 0) {
         query.columns(columns);
@@ -13,7 +14,8 @@ export const getAllPosts = async (columns = []) => {
 export const getDisplayPostBySlug = async (slug) => {
     const results = await db.from('posts')
         .select('slug', 'title', 'created', 'parsed_contents')
-        .where({ slug });
+        .where({ slug })
+
 
     if (results.length > 0) {
         return results[0];
