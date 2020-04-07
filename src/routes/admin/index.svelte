@@ -27,7 +27,7 @@
 
 <HtmlTitle title="Blog" />
 
-<h1>Posts</h1>
+<h1>Posts - <a href="/admin/posts/add">Add</a></h1>
 
 <ul>
 	{#each posts as post}

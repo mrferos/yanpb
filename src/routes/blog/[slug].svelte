@@ -19,9 +19,9 @@
 <script>
 	export let post;
 	let postDate = new Date(post.created);
-
-	console.log(format);
 </script>
+
+<HtmlTitle title={post.title} doPrepend={false} />
 
 <style>
 	/*

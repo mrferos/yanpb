@@ -2,7 +2,7 @@ import { db } from './database.js';
 
 export const getAllPosts = async (columns = []) => {
     const query = db.from('posts')
-        .orderBy('created', 'asc');
+        .orderBy('created', 'desc');
 
     if (columns.length > 0) {
         query.columns(columns);
@@ -28,4 +28,14 @@ export const getPostBySlug = async (slug, columns = []) => {
 
 export const getDisplayPostBySlug = async (slug) => {
     return getPostBySlug(slug, ['slug', 'title', 'created', 'parsed_contents']);
+};
+
+export const updatePostBySlug = async (slug, data) => {
+    return db('posts')
+        .where({ slug })
+        .update(data);
+};
+
+export const createPost = async (data) => {
+    return db('posts').insert(data);
 };

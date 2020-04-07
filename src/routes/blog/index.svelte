@@ -25,7 +25,7 @@
 	}
 </style>
 
-<HtmlTitle title="Admin" />
+<HtmlTitle title="Blog" />
 
 <h1>
     Posts

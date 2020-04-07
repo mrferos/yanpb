@@ -1,4 +1,4 @@
-import { getPostBySlug } from '../../../../lib/posts';
+import { getPostBySlug, updatePostBySlug } from '../../../../lib/posts';
 
 export async function get(req, res, next) {
 	// the `slug` parameter is available because
@@ -20,6 +20,30 @@ export async function get(req, res, next) {
 
 		res.end(JSON.stringify({
 			message: `Not found`
+		}));
+	}
+}
+
+export async function post(req, res, next) {
+	const { slug } = req.params;
+	const { parsed_contents, raw_contents, title } = req.body;
+
+	res.writeHead(200, {
+		'Content-Type': 'application/json'
+	});
+
+	try {
+		const result = await updatePostBySlug(slug, {
+			raw_contents,
+			parsed_contents,
+			title
+		});
+
+		res.end(JSON.stringify({saved: true, slug }));
+	} catch (e) {
+		res.end(JSON.stringify({
+			saved: false,
+			error: e
 		}));
 	}
 }
