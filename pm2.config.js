@@ -18,7 +18,7 @@ module.exports = {
             ref: 'origin/master',
             repo: 'git@github.com:mrferos/yanpb.git',
             path: '/home/yanpb/yapb',
-            'post-deploy': 'source ~/.env && npm i --prod && pm2 startOrRestart pm2.config.js'
+            'post-deploy': 'source ~/.bashrc && source ~/.env && npm i --prod && pm2 startOrRestart pm2.config.js'
         }
     }
 };
