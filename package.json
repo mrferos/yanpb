@@ -18,7 +18,7 @@
     "dompurify": "^2.0.8",
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
-    "knex": "^0.20.13",
+    "knex": "^2.4.0",
     "marked": "^0.8.2",
     "pm2": "^4.2.3",
     "sirv": "^0.4.0",
